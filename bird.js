@@ -1,6 +1,5 @@
 class Bird {
     constructor() {
-        //console.log(q)
         this.size = 30;
         this.y = height/2;
         this.x = width/2;
@@ -10,14 +9,8 @@ class Bird {
         this.timeout;
     }
 
-    bang() {
-   //     this.bang = true;
-     
-    }
-
     safe() {
         bird.bang = false;
-
     }
 
     show() {
@@ -35,6 +28,9 @@ class Bird {
         if(this.y >= height) {
           //  console.log("hit bottom!")
             this.y = height;
+        } else if(this.y <= 1) { //hit top
+            this.y = 2;
+           
         } else {
             this.velocity += this.gravity;
             this.y += this.velocity;
@@ -46,6 +42,5 @@ class Bird {
         this.y -= 35;  
         this.velocity = 0;      
     }
-
 }
 

@@ -18,35 +18,11 @@ class Wall {
         this.draw();
     }
 
-    hits(bird) {
-       
-        if(bird.x === this.x)  {
-            //console.log(this.x, bird.x)   
-            //console.log(this.top, this.bottom  ) 
-          //  console.log(bird.y)
-            //bottom = 22, is nearly at the bottom (1 is bottom)
-            //top = 233, top nearly in middle, 1 is the top
-            //bird at top is near 1, bird at bottom is 480 (height)
-
-           // if bird at bottom(480) 
-             if(bird.y > (height - this.bottom) || bird.y <  this.top) {
-              //  console.log(bird.y + " > " , (height-this.bottom)  )
-              //  console.log("bird.y:" + bird.y + " < " + this.bottom)
-              bird.bang = true;
-           
-              clearTimeout(bird.timeout);
-              bird.timeout = setTimeout(bird.safe ,500);
-
-            } 
-           /*    if(bird.y <  this.top) {
-              bird.bang = true;
-            }
- */
-            //if(bird.x == this.x && bird.y <= this.top) {
-    
-        }  else {
-          //  bird.bang = false;
-        }
+    hits(bird) { 
+        if(bird.x === this.x && bird.y > (height - this.bottom) || bird.x === this.x && bird.y <  this.top)  {
+            bird.bang = true;
+            clearTimeout(bird.timeout);
+            bird.timeout = setTimeout(bird.safe ,500);
+        } 
     }
-
 }
